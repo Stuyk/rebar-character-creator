@@ -40,7 +40,7 @@ const sections: Array<Array<CustomSection>> = [
             name: t('character.creator.hair'),
             property: 'hair',
             min: 0,
-            max: 45,
+            max: appearance.value.sex == 1 ? 76 : 80,
             increment: 1,
         },
         {
