@@ -6,6 +6,8 @@ import { Character } from '@Shared/types/character.js';
 import { CharacterCreatorEvents } from '../shared/characterCreatorEvents.js';
 import { Appearance } from '../../../main/shared/types/appearance.js';
 
+import { invokeCreate } from './api.js';
+
 const sessionKey = 'can-change-appearance';
 const Rebar = useRebar();
 const api = Rebar.useApi();
@@ -38,6 +40,7 @@ async function saveAppearance(player: alt.Player, appearance: Appearance) {
     Rebar.player.useClothing(player).update();
     player.emit(CharacterCreatorEvents.toClient.toggleControls, true);
     player.visible = true;
+    invokeCreate(player);
 }
 
 function handleCharacterSelect(player: alt.Player, document: Character) {
