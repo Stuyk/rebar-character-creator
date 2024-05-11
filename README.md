@@ -6,6 +6,8 @@ Any character with `No Appearance` will be shown a dialogue to build an appearan
 
 This is strictly only for `appearance` and **not clothing**.
 
+![GTA5_ExgWVBBkM4](https://github.com/Stuyk/rebar-character-creator/assets/21284100/fc345949-634e-451a-97ff-a74cff8855d5)
+
 ## Requires
 
 You must have these plugins installed to use this plugin.
