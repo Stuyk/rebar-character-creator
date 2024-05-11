@@ -8,6 +8,11 @@ import { Appearance } from '../../../main/shared/types/appearance.js';
 
 import { invokeCreate } from './api.js';
 
+import { useTranslate } from '@Shared/translate.js';
+
+import '../translate/index.js';
+
+const { t } = useTranslate('en');
 const sessionKey = 'can-change-appearance';
 const Rebar = useRebar();
 const api = Rebar.useApi();
@@ -22,13 +27,13 @@ export async function showAppearanceMenu(player: alt.Player) {
 
 async function saveAppearance(player: alt.Player, appearance: Appearance) {
     if (!player.getMeta(sessionKey)) {
-        player.kick('Unable to save appearance. Rejoin server.');
+        player.kick(t('character.creator.unable.to.save'));
         return;
     }
 
     const characterDoc = Rebar.document.character.useCharacter(player);
     if (!characterDoc) {
-        player.kick('Unable to save appearance. Rejoin server.');
+        player.kick(t('character.creator.unable.to.save'));
         return;
     }
 

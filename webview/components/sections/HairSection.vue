@@ -12,6 +12,9 @@ import FacialHairIcon from '../icons/FacialHairIcon.vue';
 
 import UiIconButton from '../ui/UiIconButton.vue';
 import SectionBuilder from './SectionBuilder.vue';
+import { useTranslate } from '@Shared/translate';
+
+const { t } = useTranslate('en');
 
 const { appearance } = useAppearance();
 const tabIndex = ref<number>(0);
@@ -34,61 +37,61 @@ const { updateValue } = useUpdater(values);
 const sections: Array<Array<CustomSection>> = [
     [
         {
-            name: 'Hair',
+            name: t('character.creator.hair'),
             property: 'hair',
             min: 0,
             max: 45,
             increment: 1,
         },
         {
-            name: 'Hair Color',
+            name: t('character.creator.hair.color'),
             property: 'hairColor1',
             isColor: true,
         },
         {
-            name: 'Hair Highlight',
+            name: t('character.creator.hair.highlight'),
             property: 'hairColor2',
             isColor: true,
         },
     ],
     [
         {
-            name: 'Eyebrows',
+            name: t('character.creator.eyebrows'),
             property: 'eyebrows',
             min: 0,
             max: 34,
             increment: 1,
         },
         {
-            name: 'Eyebrow Visibility',
+            name: t('character.creator.visibility'),
             property: 'eyebrowsOpacity',
             min: 0,
             max: 1,
             increment: 0.1,
         },
         {
-            name: 'Eyebrow Color',
+            name: t('character.creator.eyebrows.color'),
             property: 'eyebrowsColor1',
             isColor: true,
         },
     ],
     [
         {
-            name: 'Facial Hair',
+            name: t('character.creator.facial.hair'),
             property: 'facialHair',
             min: 0,
             max: 28,
             increment: 1,
         },
         {
-            name: 'Facial Hair Visibility',
+            name: t('character.creator.visibility'),
             property: 'facialHairOpacity',
             min: 0,
             max: 1,
             increment: 0.1,
         },
         {
-            name: 'Facial Hair Color',
+            name: t('character.creator.facial.color'),
             property: 'facialHairColor1',
             isColor: true,
         },
@@ -98,7 +101,7 @@ const sections: Array<Array<CustomSection>> = [
 
 <template>
     <div class="flex w-full flex-col gap-3">
-        <span class="font-semibold uppercase">Category</span>
+        <span class="font-semibold uppercase">{{ t('character.creator.category') }}</span>
         <div class="flex flex-row gap-3">
             <UiIconButton size="size-10" @click="tabIndex = 0" :selected="tabIndex == 0">
                 <HairIcon class="text-2xl" />

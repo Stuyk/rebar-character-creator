@@ -2,13 +2,14 @@
 import { reactive } from 'vue';
 
 import { Appearance } from '@Shared/types';
-import { StructureNames } from '@Shared/data/structureNames';
 
 import { useAppearance } from '../../composable/useAppearance';
 import { CustomSection, useUpdater } from '../../composable/useUpdater';
 
 import SectionBuilder from './SectionBuilder.vue';
+import { useTranslate } from '@Shared/translate';
 
+const { t } = useTranslate('en');
 const { appearance } = useAppearance();
 
 const values = reactive<Partial<Appearance>>({
@@ -17,8 +18,31 @@ const values = reactive<Partial<Appearance>>({
 
 const { updateValueByIndex } = useUpdater(values);
 
+const StructureNames = [
+    'character.creator.nose.width',
+    'character.creator.nose.height',
+    'character.creator.nose.length',
+    'character.creator.nose.profile',
+    'character.creator.nose.tip',
+    'character.creator.nose.broke',
+    'character.creator.brow.height',
+    'character.creator.brow.depth',
+    'character.creator.cheek.height',
+    'character.creator.cheek.depth',
+    'character.creator.cheek.puffed',
+    'character.creator.eyes.size',
+    'character.creator.lips.size',
+    'character.creator.jaw.width',
+    'character.creator.jaw.rounded',
+    'character.creator.chin.height',
+    'character.creator.chin.depth',
+    'character.creator.chin.pointed',
+    'character.creator.chin.dimple',
+    'character.creator.neck.size',
+];
+
 const sections: Array<CustomSection> = StructureNames.map((x) => {
-    return { name: x, property: 'structure', increment: 0.1, min: -1.0, max: 1.0, isIndexed: true };
+    return { name: t(x), property: 'structure', increment: 0.1, min: -1.0, max: 1.0, isIndexed: true };
 });
 </script>
 

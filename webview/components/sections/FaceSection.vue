@@ -12,8 +12,11 @@ import MasculineIcon from '../icons/MasculineIcon.vue';
 import UiButton from '../ui/UiButton.vue';
 import SectionBuilder from './SectionBuilder.vue';
 
+import { useTranslate } from '@Shared/translate';
+
 type CustomSection = { name: string; property: keyof Appearance; min: number; max: number; increment: number };
 
+const { t } = useTranslate('en');
 const { appearance, setField } = useAppearance();
 const sex = computed(() => appearance.value.sex);
 
@@ -30,19 +33,19 @@ const values = reactive<Partial<Appearance>>({
 const { updateValue } = useUpdater(values);
 
 const sections: Array<CustomSection> = [
-    { name: 'Face Father', property: 'faceFather', min: 0, max: 45, increment: 1 },
-    { name: 'Face Mother', property: 'faceMother', min: 0, max: 45, increment: 1 },
-    { name: 'Skin Father', property: 'skinFather', min: 0, max: 45, increment: 1 },
-    { name: 'Skin Mother', property: 'skinMother', min: 0, max: 45, increment: 1 },
-    { name: 'Face Mix', property: 'faceMix', min: 0, max: 1, increment: 0.1 },
-    { name: 'Skin Mix', property: 'skinMix', min: 0, max: 1, increment: 0.1 },
-    { name: 'Eyes', property: 'eyes', min: 0, max: 31, increment: 1 },
+    { name: t('character.creator.face.father'), property: 'faceFather', min: 0, max: 45, increment: 1 },
+    { name: t('character.creator.face.mother'), property: 'faceMother', min: 0, max: 45, increment: 1 },
+    { name: t('character.creator.skin.father'), property: 'skinFather', min: 0, max: 45, increment: 1 },
+    { name: t('character.creator.skin.mother'), property: 'skinMother', min: 0, max: 45, increment: 1 },
+    { name: t('character.creator.face.mix'), property: 'faceMix', min: 0, max: 1, increment: 0.1 },
+    { name: t('character.creator.skin.mix'), property: 'skinMix', min: 0, max: 1, increment: 0.1 },
+    { name: t('character.creator.eyes'), property: 'eyes', min: 0, max: 31, increment: 1 },
 ];
 </script>
 
 <template>
     <div class="flex w-full max-w-[328px] flex-col gap-3">
-        <span class="font-cap font-semibold uppercase">Body Type</span>
+        <span class="font-cap font-semibold uppercase">{{ t('character.creator.body.type') }}</span>
         <!-- Model Selection -->
         <UiButton height="h-10" @click="setField('sex', 0)" :selected="sex == 0">
             <FeminineIcon class="mt-[2px] text-3xl" />

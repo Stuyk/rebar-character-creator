@@ -15,6 +15,8 @@ import StructureSection from './components/sections/StructureSection.vue';
 
 import UiIconButton from './components/ui/UiIconButton.vue';
 
+import '../translate/index';
+
 const tabIndex = ref<number>(0);
 const tabButtons = [FaceIcon, HairIcon, NoseIcon, CosmeticIcon, FinishIcon];
 const tabs = [FaceSection, HairSection, StructureSection, CosmeticSection, FinishSection];

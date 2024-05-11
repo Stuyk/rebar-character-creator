@@ -5,12 +5,13 @@ import { Appearance } from '@Shared/types';
 
 import { CustomSection, useUpdater } from '../../composable/useUpdater';
 import { useAppearance } from '../../composable/useAppearance';
+import { useTranslate } from '@Shared/translate';
 
 import SectionBuilder from './SectionBuilder.vue';
 import UiButton from '../ui/UiButton.vue';
 
 const { appearance } = useAppearance();
-const sex = computed(() => appearance.value.sex);
+const { t } = useTranslate('en');
 
 const sectionIndex = ref(0);
 
@@ -20,16 +21,10 @@ const values = reactive<Partial<Appearance>>({
 
 const { updateValueByProperty } = useUpdater(values);
 
-const withColor = {
-    4: { name: 'Makeup', max: 74 },
-    5: { name: 'Blusher', max: 32 },
-    8: { name: 'Lipstick', max: 9 },
-};
-
 const sections: Array<Array<CustomSection>> = [
     [
         {
-            name: 'Blemishes',
+            name: t('character.creator.blemishes'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -37,7 +32,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 0, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -47,7 +42,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Aging',
+            name: t('character.creator.aging'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -55,7 +50,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 3, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -65,7 +60,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Damage',
+            name: t('character.creator.damage'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -73,7 +68,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 6, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -83,7 +78,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Sun Damage',
+            name: t('character.creator.sun.damage'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -91,7 +86,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 7, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -101,7 +96,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Freckles',
+            name: t('character.creator.freckles'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -109,7 +104,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 9, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -119,7 +114,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Lipstick',
+            name: t('character.creator.lipstick'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -127,7 +122,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 8, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -135,7 +130,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 8, name: 'opacity' },
         },
         {
-            name: 'Color',
+            name: t('character.creator.color'),
             property: 'headOverlays',
             isColor: true,
             propertyInfo: { id: 8, name: 'color1' },
@@ -143,7 +138,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Makeup',
+            name: t('character.creator.makeup'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -151,7 +146,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 4, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -159,7 +154,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 4, name: 'opacity' },
         },
         {
-            name: 'Color',
+            name: t('character.creator.color'),
             property: 'headOverlays',
             isColor: true,
             propertyInfo: { id: 4, name: 'color1' },
@@ -167,7 +162,7 @@ const sections: Array<Array<CustomSection>> = [
     ],
     [
         {
-            name: 'Blusher',
+            name: t('character.creator.blusher'),
             property: 'headOverlays',
             min: 0,
             max: 23,
@@ -175,7 +170,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 5, name: 'value' },
         },
         {
-            name: 'Visibility',
+            name: t('character.creator.visibility'),
             property: 'headOverlays',
             min: 0,
             max: 1,
@@ -183,7 +178,7 @@ const sections: Array<Array<CustomSection>> = [
             propertyInfo: { id: 5, name: 'opacity' },
         },
         {
-            name: 'Color',
+            name: t('character.creator.color'),
             property: 'headOverlays',
             isColor: true,
             propertyInfo: { id: 5, name: 'color1' },
@@ -191,7 +186,16 @@ const sections: Array<Array<CustomSection>> = [
     ],
 ];
 
-const SectionNames = ['Blemish', 'Aging', 'Damage', 'Sun Damage', 'Freckles', 'Lipstick', 'Makeup', 'Blusher'];
+const SectionNames = [
+    t('character.creator.blemish'),
+    t('character.creator.aging'),
+    t('character.creator.damage'),
+    t('character.creator.sun.damage'),
+    t('character.creator.freckles'),
+    t('character.creator.lipstick'),
+    t('character.creator.makeup'),
+    t('character.creator.blusher'),
+];
 
 function handleUpdate(type: 'increment' | 'decrement', section: CustomSection) {
     if (section.propertyInfo.name.includes('color')) {
