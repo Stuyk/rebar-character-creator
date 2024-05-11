@@ -12,7 +12,7 @@ import { useTranslate } from '@Shared/translate';
 const { t } = useTranslate('en');
 const { appearance } = useAppearance();
 
-const values = reactive<Partial<Appearance>>({
+let values = reactive<Partial<Appearance>>({
     structure: appearance.value.structure,
 });
 

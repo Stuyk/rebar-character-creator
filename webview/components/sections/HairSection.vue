@@ -20,7 +20,7 @@ const { appearance } = useAppearance();
 const tabIndex = ref<number>(0);
 const sex = computed(() => appearance.value.sex);
 
-const values = reactive<Partial<Appearance>>({
+let values = reactive<Partial<Appearance>>({
     hair: appearance.value.hair,
     hairColor1: appearance.value.hairColor1,
     hairColor2: appearance.value.hairColor2,

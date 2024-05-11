@@ -6,7 +6,7 @@ import { Character } from '@Shared/types/character.js';
 import { CharacterCreatorEvents } from '../shared/characterCreatorEvents.js';
 import { Appearance } from '../../../main/shared/types/appearance.js';
 
-import { invokeCreate } from './api.js';
+import { invokeCreate, invokeSkipCreate } from './api.js';
 
 import { useTranslate } from '@Shared/translate.js';
 
@@ -50,6 +50,7 @@ async function saveAppearance(player: alt.Player, appearance: Appearance) {
 
 function handleCharacterSelect(player: alt.Player, document: Character) {
     if (document.appearance) {
+        invokeSkipCreate(player);
         return;
     }
 

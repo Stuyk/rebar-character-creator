@@ -15,7 +15,7 @@ const { t } = useTranslate('en');
 
 const sectionIndex = ref(0);
 
-const values = reactive<Partial<Appearance>>({
+let values = reactive<Partial<Appearance>>({
     headOverlays: appearance.value.headOverlays,
 });
 

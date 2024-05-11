@@ -20,7 +20,7 @@ const { t } = useTranslate('en');
 const { appearance, setField } = useAppearance();
 const sex = computed(() => appearance.value.sex);
 
-const values = reactive<Partial<Appearance>>({
+let values = reactive<Partial<Appearance>>({
     faceFather: appearance.value.faceFather,
     faceMother: appearance.value.faceMother,
     skinFather: appearance.value.skinFather,
