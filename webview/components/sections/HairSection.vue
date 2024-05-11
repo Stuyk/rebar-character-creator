@@ -100,7 +100,7 @@ const sections: Array<Array<CustomSection>> = [
 </script>
 
 <template>
-    <div class="flex w-full flex-col gap-3">
+    <div class="flex w-full max-w-[328px] flex-col gap-3">
         <span class="font-semibold uppercase">{{ t('character.creator.category') }}</span>
         <div class="flex flex-row gap-3">
             <UiIconButton size="size-10" @click="tabIndex = 0" :selected="tabIndex == 0">

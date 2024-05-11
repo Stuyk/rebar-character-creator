@@ -14,6 +14,7 @@ setBulk({
         'character.creator.color': 'Color',
         'character.creator.blusher': 'Blusher',
         'character.creator.makeup': 'Makeup',
+        'character.creator.blemish': 'Blemish',
         'character.creator.face.father': 'Face Father',
         'character.creator.face.mother': 'Face Mother',
         'character.creator.skin.father': 'Skin Father',
